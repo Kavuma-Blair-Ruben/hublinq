@@ -8,9 +8,9 @@ import Image from "next/image";
 const ICON_ASPECT = 571 / 454;
 
 export function Logo({ className, height = 44, white = false }: { className?: string; height?: number; white?: boolean }) {
-  const iconHeight = Math.round(height * 0.86);
+  const iconHeight = Math.round(height * 0.68);
   return (
-    <span className={className} style={{ display: "inline-flex", alignItems: "center", gap: height * 0.14, height }}>
+    <span className={className} style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", gap: height * 0.06 }}>
       <Image
         src="/brand/hublinq-icon.png"
         alt=""
@@ -24,7 +24,7 @@ export function Logo({ className, height = 44, white = false }: { className?: st
         style={{
           fontFamily: "var(--font-display), Georgia, serif",
           fontWeight: 600,
-          fontSize: height * 0.52,
+          fontSize: height * 0.36,
           letterSpacing: "0.01em",
           color: white ? "#ffffff" : "#1c2530",
           lineHeight: 1,

@@ -9,11 +9,11 @@ const ICON_BUFFER = fs.readFileSync(path.join(process.cwd(), "public", "brand", 
 const ICON_ASPECT = 571 / 454;
 
 export function PdfLogo({ height = 30, color = "#1c2530" }: { height?: number; color?: string }) {
-  const iconHeight = height * 0.86;
+  const iconHeight = height * 0.68;
   return (
-    <View style={{ flexDirection: "row", alignItems: "center", gap: height * 0.14 }}>
+    <View style={{ flexDirection: "column", alignItems: "center", gap: height * 0.06 }}>
       <Image src={ICON_BUFFER} style={{ height: iconHeight, width: iconHeight * ICON_ASPECT }} />
-      <Text style={{ fontWeight: 600, fontSize: height * 0.52, color }}>Hublinq</Text>
+      <Text style={{ fontWeight: 600, fontSize: height * 0.36, color, textTransform: "uppercase" }}>Hublinq</Text>
     </View>
   );
 }
