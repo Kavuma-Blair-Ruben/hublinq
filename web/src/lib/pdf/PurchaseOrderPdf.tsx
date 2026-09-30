@@ -30,7 +30,6 @@ export function PurchaseOrderPdf({ po }: { po: PoPdfData }) {
         <View style={s.headerRow}>
           <View>
             <PdfLogo height={30} />
-            <Text style={s.brandSub}>Inventory Management</Text>
           </View>
           <View>
             <Text style={s.docTitle}>LOCAL PURCHASE ORDER</Text>

@@ -13,7 +13,6 @@ export default async function SetPasswordPage() {
         <div className="login-brand">
           <div className="login-brand-text">
             <Logo height={58} />
-            <span>Inventory Management</span>
           </div>
         </div>
         {user ? (

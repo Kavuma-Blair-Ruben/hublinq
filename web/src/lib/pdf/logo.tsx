@@ -1,24 +1,19 @@
-import { Svg, Line, Circle, Text } from "@react-pdf/renderer";
+import fs from "fs";
+import path from "path";
+import { View, Image, Text } from "@react-pdf/renderer";
 
-// Same hub-and-spoke mark as the web Logo component (src/components/ui/Logo.tsx),
-// redrawn with @react-pdf/renderer's Svg primitives since that renderer can't
-// load next/image output or use CSS custom properties for the font.
-export const LOGO_ASPECT = 176 / 44;
+// Same asset and layout as the web Logo component (src/components/ui/Logo.tsx):
+// the real cut-out icon at full color, paired with a text wordmark so the
+// color works on any page background without a second logo asset.
+const ICON_BUFFER = fs.readFileSync(path.join(process.cwd(), "public", "brand", "hublinq-icon.png"));
+const ICON_ASPECT = 571 / 454;
 
-export function PdfLogo({ height = 30, color = "#1c1d22" }: { height?: number; color?: string }) {
-  const width = height * LOGO_ASPECT;
+export function PdfLogo({ height = 30, color = "#1c2530" }: { height?: number; color?: string }) {
+  const iconHeight = height * 0.86;
   return (
-    <Svg viewBox="0 0 176 44" style={{ height, width }}>
-      <Line x1={22} y1={22} x2={10} y2={10} stroke={color} strokeWidth={2.75} strokeLinecap="round" />
-      <Line x1={22} y1={22} x2={34} y2={10} stroke={color} strokeWidth={2.75} strokeLinecap="round" />
-      <Line x1={22} y1={22} x2={22} y2={36} stroke={color} strokeWidth={2.75} strokeLinecap="round" />
-      <Circle cx={10} cy={10} r={4} fill={color} />
-      <Circle cx={34} cy={10} r={4} fill={color} />
-      <Circle cx={22} cy={36} r={4} fill={color} />
-      <Circle cx={22} cy={22} r={6.5} fill={color} />
-      <Text x={47} y={31} style={{ fontWeight: 600, fontSize: 25, fill: color }}>
-        Hublinq
-      </Text>
-    </Svg>
+    <View style={{ flexDirection: "row", alignItems: "center", gap: height * 0.14 }}>
+      <Image src={ICON_BUFFER} style={{ height: iconHeight, width: iconHeight * ICON_ASPECT }} />
+      <Text style={{ fontWeight: 600, fontSize: height * 0.52, color }}>Hublinq</Text>
+    </View>
   );
 }

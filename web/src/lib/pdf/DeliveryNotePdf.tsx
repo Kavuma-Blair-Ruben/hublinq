@@ -25,7 +25,6 @@ export function DeliveryNotePdf({ dn }: { dn: DnPdfData }) {
         <View style={s.headerRow}>
           <View>
             <PdfLogo height={30} />
-            <Text style={s.brandSub}>Inventory Management</Text>
           </View>
           <View>
             <Text style={s.docTitle}>{title}</Text>
