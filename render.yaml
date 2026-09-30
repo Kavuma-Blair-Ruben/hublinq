@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: nama-yoso-erp
+    name: hublinq
     runtime: node
     rootDir: web
     plan: 1c-2g

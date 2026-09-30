@@ -63,7 +63,7 @@ export async function sendPrintNodeJob(
       title,
       contentType,
       content: content.toString("base64"),
-      source: "NAMA YOSO ERP",
+      source: "HUBLINQ",
     }),
   });
 

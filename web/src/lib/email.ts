@@ -10,7 +10,7 @@ export async function sendEmail(input: { to: string; subject: string; text: stri
   if (!apiKey) return { error: "Email sending isn't configured yet — add RESEND_API_KEY to .env.local." };
 
   const resend = new Resend(apiKey);
-  const from = process.env.RESEND_FROM_EMAIL || "NAMA YOSO <onboarding@resend.dev>";
+  const from = process.env.RESEND_FROM_EMAIL || "Hublinq <onboarding@resend.dev>";
 
   const { error } = await resend.emails.send({ from, to: input.to, subject: input.subject, text: input.text });
   if (error) return { error: error.message || "Failed to send email." };
@@ -27,7 +27,7 @@ export async function sendEmailWithAttachment(input: {
   if (!apiKey) return { error: "Email sending isn't configured yet — add RESEND_API_KEY to .env.local." };
 
   const resend = new Resend(apiKey);
-  const from = process.env.RESEND_FROM_EMAIL || "NAMA YOSO <onboarding@resend.dev>";
+  const from = process.env.RESEND_FROM_EMAIL || "Hublinq <onboarding@resend.dev>";
 
   const { error } = await resend.emails.send({
     from,

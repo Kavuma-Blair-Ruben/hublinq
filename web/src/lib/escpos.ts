@@ -313,7 +313,7 @@ export function buildTestPrintTicket(deviceName: string): Buffer {
     ALIGN_CENTER,
     DOUBLE_HEIGHT_ON,
     BOLD_ON,
-    text("NAMA YOSO"),
+    text("HUBLINQ"),
     NORMAL_SIZE,
     BOLD_OFF,
     text("TEST PRINT"),

@@ -21,8 +21,8 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NAMA YOSO — Inventory Management",
-  description: "Inventory, purchasing, and recipe costing for NAMAYOSO MIRDIFF / NAMAYOSO MARSA.",
+  title: "Hublinq — Inventory Management",
+  description: "Inventory, purchasing, and recipe costing across every branch and brand.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -10,7 +10,7 @@ const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--ch
 
 // Proportional breakdown (spend by sector, wastage by reason) with a
 // centered total and a side legend — the donut-plus-legend layout Supy uses
-// for its category/reason splits, in NAMA YOSO's own 5-color chart palette.
+// for its category/reason splits, in Hublinq's own 5-color chart palette.
 export function DonutChart({ data, format = "plain", centerLabel }: { data: Slice[]; format?: ChartValueFormat; centerLabel?: string }) {
   const router = useRouter();
   const total = data.reduce((s, d) => s + d.value, 0);

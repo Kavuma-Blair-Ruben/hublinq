@@ -1,34 +1,31 @@
-import Image from "next/image";
+// Hublinq wordmark: a small hub-and-spoke mark (the platform every branch
+// and brand connects into) plus the name, set in the app's own display
+// face so it never drifts from an external asset. Pure SVG/currentColor,
+// so light/dark and the `white` prop need no separate asset to keep in sync.
+const ASPECT = 176 / 44;
 
-// Real pixel dimensions of public/brand/nama-yoso-logo.png, needed by
-// next/image for layout even though it renders at whatever `height` is
-// requested — keeps every call site's aspect ratio correct automatically.
-const ASPECT = 1595 / 1219;
-
-/**
- * The real NAMA YOSO logo file (public/brand/nama-yoso-logo.png — the
- * blue-on-white line-art wordmark supplied by the user), rendered as-is
- * rather than redrawn. The original JPEG's white background was unmatted
- * to a transparent PNG (constant ink color, per-pixel alpha derived from
- * distance-from-white) so it drops cleanly onto any background color —
- * the light sidebar, white print documents, or anything else later.
- */
 export function Logo({ className, height = 44, white = false }: { className?: string; height?: number; white?: boolean }) {
+  const color = white ? "#ffffff" : "currentColor";
   return (
-    <Image
-      src="/brand/nama-yoso-logo.png"
-      alt="NAMA YOSO"
+    <svg
+      viewBox="0 0 176 44"
       height={height}
       width={Math.round(height * ASPECT)}
       className={className}
-      // The source ink is a single solid color (constant color, per-pixel
-      // alpha) — brightness(0) collapses every opaque pixel to black
-      // regardless of its original hue, then invert(1) flips that to
-      // white, so this recolors correctly on a dark background without a
-      // second logo asset to keep in sync with the original.
-      style={{ height, width: "auto", maxWidth: "100%", objectFit: "contain", filter: white ? "brightness(0) invert(1)" : undefined }}
-      unoptimized
-      priority
-    />
+      style={{ height, width: "auto", maxWidth: "100%" }}
+      role="img"
+      aria-label="Hublinq"
+    >
+      <line x1="22" y1="22" x2="10" y2="10" stroke={color} strokeWidth="2.75" strokeLinecap="round" />
+      <line x1="22" y1="22" x2="34" y2="10" stroke={color} strokeWidth="2.75" strokeLinecap="round" />
+      <line x1="22" y1="22" x2="22" y2="36" stroke={color} strokeWidth="2.75" strokeLinecap="round" />
+      <circle cx="10" cy="10" r="4" fill={color} />
+      <circle cx="34" cy="10" r="4" fill={color} />
+      <circle cx="22" cy="36" r="4" fill={color} />
+      <circle cx="22" cy="22" r="6.5" fill={color} />
+      <text x="47" y="30.5" fontFamily="var(--font-display), Georgia, serif" fontWeight={600} fontSize="25" letterSpacing="0.2" fill={color}>
+        Hublinq
+      </text>
+    </svg>
   );
 }
