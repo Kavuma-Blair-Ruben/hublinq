@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "nama-yoso-web-dev",
-      "runtimeExecutable": "C:\\Users\\kavum\\Documents\\GitHub\\nama-yoso-erp\\web\\dev.cmd",
-      "runtimeArgs": [],
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "web\\dev.cmd"],
       "port": 3000
     }
   ]
